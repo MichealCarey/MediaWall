@@ -1,0 +1,88 @@
+@use 'variables' as *;
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: $space-3xl $space-lg;
+  background: linear-gradient(155deg, $color-bg 0%, $color-bg-elevated 40%, lighten($color-bg-elevated, 3%) 100%);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 60% at 50% 30%, $color-accent-glow 0%, rgba($color-accent, 0.08) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: $container-narrow;
+}
+
+.hero__tagline {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: $space-md;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.hero__title {
+  font-family: $font-heading;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: $color-text;
+  margin-bottom: $space-lg;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.35s forwards;
+}
+
+.hero__subtitle {
+  font-size: 1.05rem;
+  color: $color-text-muted;
+  margin-bottom: $space-xl;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.5s forwards;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.65s forwards;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: $space-xl;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-sm;
+  color: $color-text-muted;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 1s forwards;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, $color-accent, transparent);
+  animation: lineDown 1.2s ease 1.2s forwards;
+  transform: scaleY(0);
+  transform-origin: top;
+}

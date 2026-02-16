@@ -1,0 +1,121 @@
+@use 'variables' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: $space-md $space-lg;
+  background: transparent;
+  transition: background $transition-base, padding $transition-base;
+
+  &.is-scrolled {
+    background: rgba($color-bg, 0.92);
+    backdrop-filter: blur(12px);
+  }
+}
+
+.header__inner {
+  max-width: $container-max;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: $font-heading;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $color-text;
+  letter-spacing: 0.02em;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $space-xs;
+  z-index: 102;
+
+  span {
+    width: 24px;
+    height: 2px;
+    background: $color-text;
+    transition: transform $transition-base, opacity $transition-base;
+  }
+
+  &.is-open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  &.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+  &.is-open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(280px, 85vw);
+  background: $color-bg-elevated;
+  padding: $space-3xl $space-lg $space-lg;
+  transform: translateX(100%);
+  transition: transform $transition-base;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  @media (min-width: $breakpoint-md) {
+    position: static;
+    width: auto;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+    gap: $space-lg;
+  }
+}
+
+.nav__link {
+  font-size: 1rem;
+  font-weight: 400;
+  color: $color-text-muted;
+  padding: $space-xs 0;
+
+  &:hover {
+    color: $color-accent;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 0.9rem;
+  }
+}

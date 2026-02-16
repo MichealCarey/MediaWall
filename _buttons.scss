@@ -1,0 +1,37 @@
+@use 'variables' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-sm $space-lg;
+  font-family: $font-body;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: $radius-sm;
+  transition: all $transition-base;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn--primary {
+  background: $color-accent;
+  color: $color-bg;
+
+  &:hover {
+    background: $color-accent-hover;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba($color-accent, 0.25);
+  }
+}
+
+.btn--outline {
+  background: transparent;
+  color: $color-text;
+  border-color: $color-border;
+
+  &:hover {
+    border-color: $color-accent;
+    color: $color-accent;
+  }
+}
