@@ -1,2 +1,0 @@
-# MediaWall
-sample
